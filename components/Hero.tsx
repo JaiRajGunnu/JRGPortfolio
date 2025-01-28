@@ -16,8 +16,6 @@ const Hero = () => {
   const [iframeControlsPosition, setIframeControlsPosition] = useState<'absolute' | 'fixed'>('absolute');
   const [showIframeControls, setShowIframeControls] = useState(true);
 
-
-
   useEffect(() => {
     const handleFullscreenChange = () => {
       const isCurrentlyFullscreen = !!(document.fullscreenElement || (document as any).mozFullScreenElement || (document as any).webkitFullscreenElement || (document as any).msFullscreenElement);
@@ -28,8 +26,11 @@ const Hero = () => {
       setShowBlurMessage(!isCurrentlyFullscreen)
       setShowIframeControls(!isCurrentlyFullscreen)
 
+      // Focus the iframe when entering fullscreen
+      if (isCurrentlyFullscreen && iframeRef.current) {
+        iframeRef.current.focus();
+      }
     };
-
 
     document.addEventListener('fullscreenchange', handleFullscreenChange);
     document.addEventListener('mozfullscreenchange', handleFullscreenChange);
@@ -43,7 +44,6 @@ const Hero = () => {
       document.removeEventListener('msfullscreenchange', handleFullscreenChange);
     };
   }, []);
-
 
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
@@ -59,7 +59,6 @@ const Hero = () => {
     };
 
     const handleKeyUp = (event: KeyboardEvent) => {
-
       const targetWindow = isFullscreen && iframeRef.current?.contentWindow ? iframeRef.current.contentWindow : window;
 
       if (targetWindow) {
@@ -111,7 +110,6 @@ const Hero = () => {
     }
   };
 
-
   const handleStartSurfing = (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
     handleFullscreen();
@@ -119,9 +117,11 @@ const Hero = () => {
     const element = document.getElementById("iframe-container");
     if (element) element.scrollIntoView({ behavior: "smooth" });
   };
+
   useEffect(() => {
     setIframeControlsPosition(isFullscreen ? 'fixed' : 'absolute');
   }, [isFullscreen]);
+
   return (
     <div className="pt-36">
       <div>
@@ -170,14 +170,12 @@ const Hero = () => {
             />
           </a>
 
-
           <ContainerScroll titleComponent={null}>
             <div className="mt-20 w-full max-w-[1420px] h-[480px] relative " id="iframe-container" ref={containerRef}>
               {showIframeControls && (
                 <div
                   ref={iframeControlsRef}
                   className={`absolute top-0 left-0 z-30 w-full flex items-center ${iframeControlsPosition === 'fixed' ? 'fixed' : ''}`}
-
                   style={iframeControlsPosition === 'fixed' ? { top: '10px', left: '0px', width: '100%', zIndex: 31 } : {}}
                 >
                   <div className="flex h-8 w-full items-center rounded-t-2xl bg-[#313C4C] dark:bg-[#313C4C] pr-2 pl-3"
