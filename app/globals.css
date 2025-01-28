@@ -85,3 +85,11 @@
     @apply font-bold text-4xl md:text-5xl text-center;
   }
 }
+
+
+img {
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}

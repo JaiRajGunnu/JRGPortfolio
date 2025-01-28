@@ -9,10 +9,14 @@ import { ContainerScroll } from "./ui/ContainerScroll"; // Import the ContainerS
 const Hero = () => {
   const [isFullscreen, setIsFullscreen] = useState(false);
   const iframeRef = useRef<HTMLIFrameElement | null>(null);
-  const containerRef = useRef<HTMLDivElement | null>(null); // Add a ref for the container
+  const containerRef = useRef<HTMLDivElement | null>(null);
+  const iframeControlsRef = useRef<HTMLDivElement | null>(null)
   const [fullscreenElement, setFullscreenElement] = useState<Element | null>(null);
   const [showBlurMessage, setShowBlurMessage] = useState(false);
   const [iframeControlsPosition, setIframeControlsPosition] = useState<'absolute' | 'fixed'>('absolute');
+  const [showIframeControls, setShowIframeControls] = useState(true);
+
+
 
   useEffect(() => {
     const handleFullscreenChange = () => {
@@ -22,6 +26,8 @@ const Hero = () => {
       setIsFullscreen(isCurrentlyFullscreen);
 
       setShowBlurMessage(!isCurrentlyFullscreen)
+      setShowIframeControls(!isCurrentlyFullscreen)
+
     };
 
 
@@ -75,7 +81,7 @@ const Hero = () => {
   }, [isFullscreen]);
 
   const handleFullscreen = () => {
-    const container = containerRef.current; // Get the container element
+    const container = containerRef.current;
 
     if (!container) return;
 
@@ -148,11 +154,11 @@ const Hero = () => {
 
           <TextGenerateEffect
             words="Got bored scrolling? Try surfing!"
-            className="text-center text-[40px] md:text-5xl lg:text-6xl"
+            className="text-center py-3 text-[40px] md:text-5xl lg:text-6xl"
           />
 
-          <p className="text-center md:tracking-wider mb-4 text-sm md:text-lg lg:text-base">
-            Here is the mini-game to explore about me than bored scrolling
+          <p className="text-center md:tracking-wider mb-2 text-xs md:text-base lg:text-base">
+            Play a mini-game to know about me—fun, no more scrolling!
           </p>
 
           <a onClick={handleStartSurfing}>
@@ -167,23 +173,22 @@ const Hero = () => {
 
           <ContainerScroll titleComponent={null}>
             <div className="mt-20 w-full max-w-[1420px] h-[480px] relative " id="iframe-container" ref={containerRef}>
-              <div
-                className={`absolute top-0 left-0 z-30 w-full flex items-center   ${iframeControlsPosition === 'fixed' ? 'fixed' : ''}`}
-                style={iframeControlsPosition === 'fixed' ? { top: '10px', left: '0px', width: '100%', zIndex: 31 } : {}}
-              >
-                <div className="flex h-8 w-full items-center rounded-t-2xl bg-black/[0.4] dark:bg-white/[0.2] pr-2 pl-3"
-                  style={{ marginTop: "-30px" }}
+              {showIframeControls && (
+                <div
+                  ref={iframeControlsRef}
+                  className={`absolute top-0 left-0 z-30 w-full flex items-center ${iframeControlsPosition === 'fixed' ? 'fixed' : ''}`}
+
+                  style={iframeControlsPosition === 'fixed' ? { top: '10px', left: '0px', width: '100%', zIndex: 31 } : {}}
                 >
-                  <div className="w-3 h-3 rounded-full bg-red-500 mx-1" />
-                  <div className="w-3 h-3 rounded-full bg-yellow-400 mx-1" />
-                  <div className="w-3 h-3 rounded-full bg-green-500 mx-1" />
-                </div>
-              </div>
-              <button
-                className="absolute bottom-5 right-5 z-20 bg-white/[.10] text-white p-2 rounded-full hover:bg-white/[.20] transition-colors duration-300"
-                onClick={handleFullscreen} >
-                {isFullscreen ? <FaExpand style={{ transform: 'rotate(180deg)' }} /> : <FaExpand />}
-              </button>
+                  <div className="flex h-8 w-full items-center rounded-t-2xl bg-[#313C4C] dark:bg-[#313C4C] pr-2 pl-3"
+                    style={{ marginTop: "-30px" }}
+                  >
+                    <div className="w-3 h-3 rounded-full bg-red-500 mx-1" />
+                    <div className="w-3 h-3 rounded-full bg-yellow-400 mx-1" />
+                    <div className="w-3 h-3 rounded-full bg-green-500 mx-1" />
+                  </div>
+                </div>)}
+
               <div
                 className={`absolute inset-0 bg-black/[0.7] z-10 flex items-center justify-center transition-opacity duration-300 ${showBlurMessage ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}`}>
                 {showBlurMessage && (
@@ -192,7 +197,12 @@ const Hero = () => {
                   </p>
                 )}
               </div>
-              <div className={`w-full h-full rounded-b-2xl border border-white/[0.1] overflow-hidden ${showBlurMessage ? 'relative' : ''} `} style={{ transition: 'all 0.3s ease-in-out' }}>
+              <div className={`w-full h-full rounded-b-2xl border border-white/[0.1] overflow-hidden relative `} style={{ transition: 'all 0.3s ease-in-out' }}>
+                <button
+                  className="absolute bottom-5 right-5 z-20 bg-white/[.10] text-white p-2 rounded-full hover:bg-white/[.20] transition-colors duration-300"
+                  onClick={handleFullscreen} >
+                  {isFullscreen ? <FaExpand style={{ transform: 'rotate(180deg)' }} /> : <FaExpand />}
+                </button>
                 <iframe
                   ref={iframeRef}
                   src="https://surfmyresume.vercel.app/"
