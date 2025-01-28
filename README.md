@@ -1,5 +1,4 @@
 
-```markdown
 # My Portfolio
 
 Welcome to my personal portfolio project! This is a Next.js-based website showcasing my skills, projects, and experience. The project is designed to be fast, responsive, and easy to maintain.
@@ -127,6 +126,4 @@ This project is open-source and available under the [MIT License](LICENSE).
 
 ---
 
-
 Thank you for visiting my portfolio project! 🚀
-```
