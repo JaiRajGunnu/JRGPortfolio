@@ -92,7 +92,7 @@ export const projects = [
     title: "Video Streaming Platform",
     des: "A video streaming platform with a smooth UI, real-time video playback, adaptive streaming, and for personalized recommendations.",
     img: "/pimg3.jpg",
-    iconLists: ["/next.svg", "/tail.svg", "/ts.svg", "/stream.svg", "/c.svg"],
+    iconLists: ["/next.svg", "/tail.svg", "/nodejs.webp", "/ts.svg", "/expjs.png"],
     link: "/ui.yoom.com",
   },
   {
@@ -100,7 +100,7 @@ export const projects = [
     title: "Social Vehicle Management App",
     des: "A smart vehicle management system designed to track and manage shared or rented vehicles efficiently.",
     img: "/pimg4.png",
-    iconLists: ["/next.svg", "/tail.svg", "/ts.svg", "/figma.webp", "/gsap.svg"],
+    iconLists: ["/next.svg", "/tail.svg", "/ts.svg", "/figma.webp", "/re.svg"],
     link: "/ui.apple.com",
   },
 ];
