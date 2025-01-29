@@ -221,7 +221,7 @@ const Hero = () => {
           <a onClick={handleStartSurfing}>
             <MagicButton
               title="Play surfing! "
-              icon={<FaGamepad style={{ fontSize: '23px', marginRight: '5px' }} />}
+              icon={<FaGamepad style={{ fontSize: '22px', marginRight: '3px' }} />}
               position="left"
               style={{ zIndex: 9999999999 }}
             />

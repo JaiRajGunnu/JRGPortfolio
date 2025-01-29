@@ -72,37 +72,39 @@ export const gridItems = [
 export const projects = [
   {
     id: 1,
-    title: "3D Solar System Planets to Explore",
-    des: "Explore the wonders of our solar system with this captivating 3D simulation of the planets using Three.js.",
-    img: "/p1.svg",
+    title: "MWS - Ride Booking App",
+    des: "A seamless ride-booking application designed to connect passengers with drivers efficiently. F",
+    img: "/pimg1.jpg",
     iconLists: ["/re.svg", "/tail.svg", "/ts.svg", "/three.svg", "/fm.svg"],
     link: "/ui.earth.com",
   },
+
   {
     id: 2,
-    title: "Yoom - Video Conferencing App",
-    des: "Simplify your video conferencing experience with Yoom. Seamlessly connect with colleagues and friends.",
-    img: "/p2.svg",
-    iconLists: ["/next.svg", "/tail.svg", "/ts.svg", "/stream.svg", "/c.svg"],
-    link: "/ui.yoom.com",
-  },
-  {
-    id: 3,
-    title: "AI Image SaaS - Canva Application",
-    des: "A REAL Software-as-a-Service app with AI features and a payments and credits system using the latest tech stack.",
-    img: "/p3.svg",
+    title: "Dockerized Web Server with CI/CD",
+    des: "A scalable web server integrated with Docker and CI/CD pipelines for automated deployments.",
+    img: "/pimg2.png",
     iconLists: ["/re.svg", "/tail.svg", "/ts.svg", "/three.svg", "/c.svg"],
     link: "/ui.aiimg.com",
   },
   {
+    id: 3,
+    title: "Video Streaming Platform",
+    des: "A video streaming platform with a smooth UI, real-time video playback, adaptive streaming, and for personalized recommendations.",
+    img: "/pimg3.jpg",
+    iconLists: ["/next.svg", "/tail.svg", "/ts.svg", "/stream.svg", "/c.svg"],
+    link: "/ui.yoom.com",
+  },
+  {
     id: 4,
-    title: "Animated Apple Iphone 3D Website",
-    des: "Recreated the Apple iPhone 15 Pro website, combining GSAP animations and Three.js 3D effects..",
-    img: "/p4.svg",
+    title: "Social Vehicle Management App",
+    des: "A smart vehicle management system designed to track and manage shared or rented vehicles efficiently.",
+    img: "/pimg4.png",
     iconLists: ["/next.svg", "/tail.svg", "/ts.svg", "/three.svg", "/gsap.svg"],
     link: "/ui.apple.com",
   },
 ];
+
 
 export const testimonials = [
   {
@@ -171,36 +173,36 @@ export const companies = [
 ];
 
 export const workExperience = [
-{
-  id: 1,
-  title: "Full-Stack Web Developer",
-  desc: "Developed and optimized a web-based platforms using React.js, ensuring seamless interactivity and performance.",
-  className: "md:col-span-2",
-  thumbnail: "/exp1.svg",
-},
-{
-  id: 2,
-  title: "DevOps Trainee",
-  desc: "Managed the end-to-end development and deployment of a application, implementing CI/CD pipelines.",
-  className: "md:col-span-2",
-  thumbnail: "/exp3.svg",
-},
-{
-  id: 3,
-  title: "Java Trainee",
-  desc: "Contributed to building scalable backend systems and APIs using Java, ensuring efficient data handling and integration.",
-  className: "md:col-span-2",
-  thumbnail: "/exp2.svg",
-},
+  {
+    id: 1,
+    title: "Full-Stack Web Developer",
+    desc: "Developed and optimized a web-based platforms using React.js, ensuring seamless interactivity and performance.",
+    className: "md:col-span-2",
+    thumbnail: "/exp1.svg",
+  },
+  {
+    id: 2,
+    title: "DevOps Trainee",
+    desc: "Managed the end-to-end development and deployment of a application, implementing CI/CD pipelines.",
+    className: "md:col-span-2",
+    thumbnail: "/exp3.svg",
+  },
+  {
+    id: 3,
+    title: "Java Trainee",
+    desc: "Contributed to building scalable backend systems and APIs using Java, ensuring efficient data handling and integration.",
+    className: "md:col-span-2",
+    thumbnail: "/exp2.svg",
+  },
 
 
-{
-  id: 4,
-  title: "UI/UX Designer",
-  desc: "Designed visually appealing user interfaces using modern frontend frameworks and tools.",
-  className: "md:col-span-2",
-  thumbnail: "/exp4.svg",
-},
+  {
+    id: 4,
+    title: "UI/UX Designer",
+    desc: "Designed visually appealing user interfaces using modern frontend frameworks and tools.",
+    className: "md:col-span-2",
+    thumbnail: "/exp4.svg",
+  },
 
 ];
 
