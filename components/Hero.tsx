@@ -1,4 +1,4 @@
-import { FaLocationArrow, FaExpand } from "react-icons/fa6";
+import { FaLocationArrow, FaExpand, FaPlaystation, FaGamepad } from "react-icons/fa6";
 import { FaSailboat } from 'react-icons/fa6';
 import MagicButton from "./MagicButton";
 import { Spotlight } from "./ui/Spotlight";
@@ -179,10 +179,10 @@ const Hero = () => {
 
           <a onClick={handleStartSurfing}>
             <MagicButton
-              title="Play surfing!"
-              icon={<FaSailboat />}
-              position="right"
-              style={{ zIndex: 9999999999 }} // Apply z-index here
+              title="Play surfing! "
+              icon={<FaGamepad style={{ fontSize: '23px', marginRight: '5px' }} />}
+              position="left"
+              style={{ zIndex: 9999999999 }}
             />
           </a>
 
