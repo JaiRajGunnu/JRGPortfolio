@@ -68,7 +68,6 @@ export const gridItems = [
     spareImg: "",
   },
 ];
-
 export const projects = [
   {
     id: 1,
@@ -76,35 +75,46 @@ export const projects = [
     des: "A seamless ride-booking application designed to connect passengers with drivers efficiently.",
     img: "/pimg1.jpg",
     iconLists: ["/re.svg", "/tail.svg", "/ts.svg", "/next.svg", "/figma.webp"],
-    link: "/ui.earth.com",
+    link: "https://comingsoon-eta-one.vercel.app/",
+    status: "Ongoing",
   },
-
   {
     id: 2,
+    title: "Surf My Resume Game",
+    des: "An interactive resume game inspired by the Microsoft Surf game making the resume both engaging & unique.",
+    img: "/smr.png",
+    iconLists: ["/re.svg", "/tail.svg", "/nodejs.webp", "/git.webp", "/js.png"],
+    link: "https://surfmyresume.vercel.app/",
+    status: "Completed",
+  },
+  {
+    id: 3,
     title: "Dockerized Web Server with CI/CD",
     des: "A scalable web server integrated with Docker and CI/CD pipelines for automated deployments.",
     img: "/pimg2.png",
     iconLists: ["/docker.webp", "/git.webp", "/postman.webp", "/re.svg", "/js.png"],
-    link: "/ui.aiimg.com",
+    link: "https://comingsoon-eta-one.vercel.app/",
+    status: "Completed",
   },
   {
-    id: 3,
+    id: 4,
     title: "Video Streaming Platform",
     des: "A video streaming platform with a smooth UI, real-time video playback, adaptive streaming, and for personalized recommendations.",
     img: "/pimg3.jpg",
     iconLists: ["/next.svg", "/tail.svg", "/nodejs.webp", "/ts.svg", "/expjs.png"],
-    link: "/ui.yoom.com",
+    link: "https://comingsoon-eta-one.vercel.app/",
+    status: "Completed",
   },
   {
-    id: 4,
+    id: 5,
     title: "Social Vehicle Management App",
     des: "A smart vehicle management system designed to track and manage shared or rented vehicles efficiently.",
     img: "/pimg4.png",
     iconLists: ["/next.svg", "/tail.svg", "/ts.svg", "/figma.webp", "/re.svg"],
-    link: "/ui.apple.com",
+    link: "https://comingsoon-eta-one.vercel.app/",
+    status: "Paused",
   },
 ];
-
 
 export const testimonials = [
   {

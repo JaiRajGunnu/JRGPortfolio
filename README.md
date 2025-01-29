@@ -21,7 +21,7 @@ Welcome to my personal portfolio project! This is a Next.js-based website showca
 Here’s an overview of the project structure:
 
 ```
-jgrportfolio/
+jrgportfolio/
 ├── app/                  # Next.js app directory
 ├── api/                  # API routes
 ├── components/           # Reusable React components
@@ -54,8 +54,8 @@ To get a local copy of this project up and running, follow these steps:
 
 1. **Clone the repository**:
    ```bash
-   git clone https://github.com/jairajgunnu/jgrportfolio.git
-   cd jgrportfolio
+   git clone https://github.com/jairajgunnu/jrgportfolio.git
+   cd jrgportfolio
    ```
 
 2. **Install dependencies**:
