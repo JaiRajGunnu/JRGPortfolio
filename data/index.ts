@@ -68,6 +68,7 @@ export const gridItems = [
     spareImg: "",
   },
 ];
+
 export const projects = [
   {
     id: 1,
@@ -75,16 +76,23 @@ export const projects = [
     des: "A seamless ride-booking application designed to connect passengers with drivers efficiently.",
     img: "/pimg1.jpg",
     iconLists: ["/re.svg", "/tail.svg", "/ts.svg", "/next.svg", "/figma.webp"],
-    link: "https://comingsoon-eta-one.vercel.app/",
+    links: {
+      github: "https://github.com/your-repo-1",
+      live: "https://comingsoon-eta-one.vercel.app/",
+      figma: "https://your-figma-link-1"
+    },
     status: "Ongoing",
   },
   {
     id: 2,
     title: "Surf My Resume Game",
-    des: "An interactive resume game inspired by the Microsoft Surf game making the resume both engaging & unique.",
+    des: "An interactive resume game inspired from Microsoft Surf game making the resume both engaging & unique.",
     img: "/smr.png",
     iconLists: ["/re.svg", "/tail.svg", "/nodejs.webp", "/git.webp", "/js.png"],
-    link: "https://surfmyresume.vercel.app/",
+    links: {
+      live: "https://surfmyresume.vercel.app/",
+      github: "https://github.com/your-repo-2"
+    },
     status: "Completed",
   },
   {
@@ -93,28 +101,43 @@ export const projects = [
     des: "A scalable web server integrated with Docker and CI/CD pipelines for automated deployments.",
     img: "/pimg2.png",
     iconLists: ["/docker.webp", "/git.webp", "/postman.webp", "/re.svg", "/js.png"],
-    link: "https://comingsoon-eta-one.vercel.app/",
+    links: {
+      github: "https://github.com/JaiRajGunnu/docker_cicd",
+    },
     status: "Completed",
   },
-  {
-    id: 4,
-    title: "Video Streaming Platform",
-    des: "A video streaming platform with a smooth UI, real-time video playback, adaptive streaming, and for personalized recommendations.",
-    img: "/pimg3.jpg",
-    iconLists: ["/next.svg", "/tail.svg", "/nodejs.webp", "/ts.svg", "/expjs.png"],
-    link: "https://comingsoon-eta-one.vercel.app/",
-    status: "Completed",
-  },
+
+  // {
+  //   id: 4,
+  //   title: "Video Streaming Platform",
+  //   des: "A video streaming platform with a smooth UI, real-time video playback, adaptive streaming, and for personalized recommendations.",
+  //   img: "/pimg3.jpg",
+  //   iconLists: ["/next.svg", "/tail.svg", "/nodejs.webp", "/ts.svg", "/expjs.png"],
+  // links: {
+  //  live: "https://comingsoon-eta-one.vercel.app/", },
+  //   //   status: "Completed",
+  // },
+
   {
     id: 5,
     title: "Social Vehicle Management App",
     des: "A smart vehicle management system designed to track and manage shared or rented vehicles efficiently.",
     img: "/pimg4.png",
     iconLists: ["/next.svg", "/tail.svg", "/ts.svg", "/figma.webp", "/re.svg"],
-    link: "https://comingsoon-eta-one.vercel.app/",
+    links: {
+      github: "https://github.com/your-repo-3",
+      live: "https://comingsoon-eta-one.vercel.app/",
+      figma: "https://your-figma-link-2",
+      files: "hsdjs.com"
+
+    },
     status: "Paused",
   },
 ];
+
+
+
+
 
 export const testimonials = [
   {
