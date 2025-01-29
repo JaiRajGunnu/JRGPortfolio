@@ -73,9 +73,9 @@ export const projects = [
   {
     id: 1,
     title: "MWS - Ride Booking App",
-    des: "A seamless ride-booking application designed to connect passengers with drivers efficiently. F",
+    des: "A seamless ride-booking application designed to connect passengers with drivers efficiently.",
     img: "/pimg1.jpg",
-    iconLists: ["/re.svg", "/tail.svg", "/ts.svg", "/three.svg", "/fm.svg"],
+    iconLists: ["/re.svg", "/tail.svg", "/ts.svg", "/next.svg", "/figma.webp"],
     link: "/ui.earth.com",
   },
 
@@ -84,7 +84,7 @@ export const projects = [
     title: "Dockerized Web Server with CI/CD",
     des: "A scalable web server integrated with Docker and CI/CD pipelines for automated deployments.",
     img: "/pimg2.png",
-    iconLists: ["/re.svg", "/tail.svg", "/ts.svg", "/three.svg", "/c.svg"],
+    iconLists: ["/docker.webp", "/git.webp", "/postman.webp", "/re.svg", "/js.png"],
     link: "/ui.aiimg.com",
   },
   {
@@ -100,7 +100,7 @@ export const projects = [
     title: "Social Vehicle Management App",
     des: "A smart vehicle management system designed to track and manage shared or rented vehicles efficiently.",
     img: "/pimg4.png",
-    iconLists: ["/next.svg", "/tail.svg", "/ts.svg", "/three.svg", "/gsap.svg"],
+    iconLists: ["/next.svg", "/tail.svg", "/ts.svg", "/figma.webp", "/gsap.svg"],
     link: "/ui.apple.com",
   },
 ];
