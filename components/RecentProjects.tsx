@@ -10,7 +10,11 @@ import {
   FaLink,
   FaFigma,
   FaFileAlt,
-  FaTools
+  FaTools,
+  FaPlayCircle,
+  FaCheckCircle,
+  FaHourglassHalf,
+  FaPauseCircle,
 } from "react-icons/fa";
 
 const RecentProjects = () => {
@@ -26,19 +30,33 @@ const RecentProjects = () => {
 
   const getIcon = (key: string) => {
     switch (key) {
-      case 'GitHub':
+      case "GitHub":
         return <FaGithub className="inline-block mr-2 text-lg" />;
-      case 'live':
+      case "live":
         return <FaLink className="inline-block mr-2 text-lg" />;
-      case 'figma':
+      case "figma":
         return <FaFigma className="inline-block mr-2 text-lg" />;
-      case 'files':
+      case "files":
         return <FaFileAlt className="inline-block mr-2 text-lg" />;
+      case "video":
+        return <FaPlayCircle className="inline-block mr-2 text-lg" />;
       default:
         return null;
     }
   };
 
+  const getStatusIcon = (status: string) => {
+    switch (status) {
+      case "Completed":
+        return <FaCheckCircle className="inline-block mr-1 text-xs" />;
+      case "Ongoing":
+        return <FaHourglassHalf className="inline-block mr-1 text-xs" />;
+      case "Paused":
+        return <FaPauseCircle className="inline-block mr-1 text-xs" />;
+      default:
+        return null;
+    }
+  };
 
   return (
     <div className="py-20">
@@ -55,44 +73,48 @@ const RecentProjects = () => {
           >
             <CardContainer>
               <CardBody
-                className="bg-gray-50 relative group/card  dark:hover:shadow-2xl dark:hover:shadow-emerald-500/[0.1] dark:bg-black dark:border-white/[0.2] border-black/[0.1]  rounded-xl p-6 border w-full h-[25rem] lg:min-h-[30.5rem] flex flex-col"
+                className="bg-gray-50 relative group/card  dark:hover:shadow-2xl dark:hover:shadow-emerald-500/[0.1] dark:bg-black dark:border-white/[0.2] border-black/[0.1]  rounded-xl p-6 border w-full h-[25rem] lg:min-h-[28rem] flex flex-col"
               >
-                <CardItem translateZ="100" className="w-full mt-4 flex-grow">
-                  <div className="relative w-full h-[20vh] lg:h-[32vh] overflow-hidden rounded-xl">
+                <CardItem translateZ="100" className="w-full flex-grow">
+                  <div className="relative w-full h-[20vh] lg:h-[30vh] overflow-hidden rounded-xl">
                     <div
                       className="absolute inset-0 w-full h-full overflow-hidden lg:rounded-3xl"
                       style={{ backgroundColor: "#13162D" }}
                     >
-                      <img src="/bg.png" alt="bgimg" className="w-full h-full object-cover" />
+                      <img
+                        src="/bg.png"
+                        alt="bgimg"
+                        className="w-full h-full object-cover"
+                      />
                     </div>
+
+                    <div className="absolute bottom-0 right-0 z-20">
+                      <span
+                        className={`px-2 py-1 rounded-md text-xs font-medium flex items-center mb-4 mr-4 ${item.status === "Completed"
+                          ? "bg-green-200 text-green-800 dark:bg-green-700 dark:text-green-200"
+                          : item.status === "Ongoing"
+                            ? "bg-yellow-200 text-yellow-800 dark:bg-yellow-700 dark:text-yellow-200"
+                            : item.status === "Paused"
+                              ? "bg-gray-200 text-gray-800 dark:bg-gray-700 dark:text-gray-200"
+                              : "bg-blue-200 text-blue-800 dark:bg-blue-700 dark:text-blue-200"
+                          }`}
+                      >
+                        {getStatusIcon(item.status)}
+                        {item.status}
+                      </span>
+                    </div>
+
                     <img
                       src={item.img}
                       alt="cover"
-                      className="z-10 absolute bottom-0  w-full object-contain"
+                      className="z-10 absolute bottom-0 w-full object-contain"
                     />
-                  </div>
-                </CardItem>
-
-                <CardItem translateZ="130">
-                  <div className="relative right-25 z-10">
-                    <span
-                      className={`px-2 py-1 rounded-md text-xs font-medium ${item.status === "Completed"
-                        ? "bg-green-200 text-green-800 dark:bg-green-700 dark:text-green-200"
-                        : item.status === "Ongoing"
-                          ? "bg-yellow-200 text-yellow-800 dark:bg-yellow-700 dark:text-yellow-200"
-                          : item.status === "Paused"
-                            ? "bg-gray-200 text-gray-800 dark:bg-gray-700 dark:text-gray-200"
-                            : "bg-blue-200 text-blue-800 dark:bg-blue-700 dark:text-blue-200"
-                        }`}
-                    >
-                      {item.status}
-                    </span>
                   </div>
                 </CardItem>
 
                 <CardItem
                   translateZ="140"
-                  className="text-xl font-bold text-neutral-600 dark:text-white line-clamp-1 mt-4"
+                  className="text-xl font-bold text-neutral-600 dark:text-white line-clamp-1 mt-2"
                 >
                   {item.title}
                 </CardItem>
@@ -140,7 +162,10 @@ const RecentProjects = () => {
                         <div className="absolute top-0 right-4 -mt-2 w-0 h-0 border-l-[8px] border-r-[8px] border-b-[12px] border-l-transparent border-r-transparent border-b-white dark:border-b-gray-800 z-[-1] " />
                         <div className="max-h-48 overflow-y-auto">
                           {Object.entries(item.links).map(([key, link]) => {
-                            if (key === "underConstruction" && item.links.underConstruction) {
+                            if (
+                              key === "underConstruction" &&
+                              item.links.underConstruction
+                            ) {
                               return (
                                 <div
                                   key="underConstruction"
@@ -149,9 +174,9 @@ const RecentProjects = () => {
                                   <FaTools className="inline-block mr-5 text-lg" />
                                   Under Construction
                                 </div>
-                              )
+                              );
                             }
-                            if (key !== 'underConstruction') {
+                            if (key !== "underConstruction") {
                               return (
                                 <Link
                                   key={key}
@@ -160,7 +185,10 @@ const RecentProjects = () => {
                                   className="flex items-center px-4 py-2 text-gray-800 hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 text-sm"
                                 >
                                   {getIcon(key)}
-                                  <span className="ml-2"> {` ${key.charAt(0).toUpperCase() + key.slice(1)} `}</span>
+                                  <span className="ml-2">
+                                    {` ${key.charAt(0).toUpperCase() +
+                                      key.slice(1)} `}
+                                  </span>
                                 </Link>
                               );
                             }
