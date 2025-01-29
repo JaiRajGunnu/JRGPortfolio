@@ -68,7 +68,6 @@ export const gridItems = [
     spareImg: "",
   },
 ];
-
 export const projects = [
   {
     id: 1,
@@ -77,9 +76,11 @@ export const projects = [
     img: "/pimg1.jpg",
     iconLists: ["/re.svg", "/tail.svg", "/ts.svg", "/next.svg", "/figma.webp"],
     links: {
-      github: "https://github.com/your-repo-1",
-      live: "https://comingsoon-eta-one.vercel.app/",
-      figma: "https://your-figma-link-1"
+      // GitHub: "",
+      // live: "https://comingsoon-eta-one.vercel.app/",
+      // figma: "",
+      // files: "",
+      underConstruction: true
     },
     status: "Ongoing",
   },
@@ -91,7 +92,10 @@ export const projects = [
     iconLists: ["/re.svg", "/tail.svg", "/nodejs.webp", "/git.webp", "/js.png"],
     links: {
       live: "https://surfmyresume.vercel.app/",
-      github: "https://github.com/your-repo-2"
+      GitHub: "https://github.com/your-repo-2",
+      // figma: "",
+      // files: "",
+      underConstruction: false,
     },
     status: "Completed",
   },
@@ -100,11 +104,30 @@ export const projects = [
     title: "Dockerized Web Server with CI/CD",
     des: "A scalable web server integrated with Docker and CI/CD pipelines for automated deployments.",
     img: "/pimg2.png",
-    iconLists: ["/docker.webp", "/git.webp", "/postman.webp", "/re.svg", "/js.png"],
+    iconLists: ["/docker.webp", "/git.webp", "/mongodb.svg", "/postman.webp", "/js.png"],
     links: {
-      github: "https://github.com/JaiRajGunnu/docker_cicd",
+      GitHub: "https://github.com/JaiRajGunnu/docker_cicd",
+      // live: "https://comingsoon-eta-one.vercel.app/",
+      // figma: "",
+      // files: "",
+      underConstruction: false,
     },
     status: "Completed",
+  },
+  {
+    id: 5,
+    title: "Social Vehicle Management App",
+    des: "A smart vehicle management system designed to track and manage shared or rented vehicles efficiently.",
+    img: "/pimg4.png",
+    iconLists: ["/next.svg", "/tail.svg", "/ts.svg", "/figma.webp", "/re.svg"],
+    links: {
+      // GitHub: "",
+      // live: "https://comingsoon-eta-one.vercel.app/",
+      // figma: "",
+      files: "",
+      underConstruction: false,
+    },
+    status: "Paused",
   },
 
   // {
@@ -114,25 +137,13 @@ export const projects = [
   //   img: "/pimg3.jpg",
   //   iconLists: ["/next.svg", "/tail.svg", "/nodejs.webp", "/ts.svg", "/expjs.png"],
   // links: {
-  //  live: "https://comingsoon-eta-one.vercel.app/", },
-  //   //   status: "Completed",
+  // GitHub: "",
+  // live: "https://comingsoon-eta-one.vercel.app/",
+  // figma: "",
+  // files: "",     
+  //   status: "Completed",
   // },
 
-  {
-    id: 5,
-    title: "Social Vehicle Management App",
-    des: "A smart vehicle management system designed to track and manage shared or rented vehicles efficiently.",
-    img: "/pimg4.png",
-    iconLists: ["/next.svg", "/tail.svg", "/ts.svg", "/figma.webp", "/re.svg"],
-    links: {
-      github: "https://github.com/your-repo-3",
-      live: "https://comingsoon-eta-one.vercel.app/",
-      figma: "https://your-figma-link-2",
-      files: "hsdjs.com"
-
-    },
-    status: "Paused",
-  },
 ];
 
 

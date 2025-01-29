@@ -10,6 +10,7 @@ import {
   FaLink,
   FaFigma,
   FaFileAlt,
+  FaTools
 } from "react-icons/fa";
 
 const RecentProjects = () => {
@@ -25,7 +26,7 @@ const RecentProjects = () => {
 
   const getIcon = (key: string) => {
     switch (key) {
-      case 'github':
+      case 'GitHub':
         return <FaGithub className="inline-block mr-2 text-lg" />;
       case 'live':
         return <FaLink className="inline-block mr-2 text-lg" />;
@@ -135,20 +136,36 @@ const RecentProjects = () => {
                     </CardItem>
 
                     {hoveredCard === item.id && (
-                      <div className="absolute top-full mt-2 bg-white border dark:bg-gray-800 rounded-md shadow-md group-hover:block z-[9999999999999] ">
+                      <div className="absolute top-full mt-2 bg-white border dark:bg-gray-800 rounded-md shadow-md group-hover:block z-[9999999999999] left-[20%]">
                         <div className="absolute top-0 right-4 -mt-2 w-0 h-0 border-l-[8px] border-r-[8px] border-b-[12px] border-l-transparent border-r-transparent border-b-white dark:border-b-gray-800 z-[-1] " />
                         <div className="max-h-48 overflow-y-auto">
-                          {Object.entries(item.links).map(([key, link]) => (
-                            <Link
-                              key={key}
-                              href={link}
-                              target="__blank"
-                              className="flex items-center px-4 py-2 text-gray-800 hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 text-sm"
-                            >
-                              {getIcon(key)}
-                              {`View ${key.charAt(0).toUpperCase() + key.slice(1)} `}
-                            </Link>
-                          ))}
+                          {Object.entries(item.links).map(([key, link]) => {
+                            if (key === "underConstruction" && item.links.underConstruction) {
+                              return (
+                                <div
+                                  key="underConstruction"
+                                  className="flex items-center px-4 py-2 text-gray-800 dark:text-white text-sm"
+                                >
+                                  <FaTools className="inline-block mr-5 text-lg" />
+                                  Under Construction
+                                </div>
+                              )
+                            }
+                            if (key !== 'underConstruction') {
+                              return (
+                                <Link
+                                  key={key}
+                                  href={link}
+                                  target="__blank"
+                                  className="flex items-center px-4 py-2 text-gray-800 hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 text-sm"
+                                >
+                                  {getIcon(key)}
+                                  <span className="ml-2"> {` ${key.charAt(0).toUpperCase() + key.slice(1)} `}</span>
+                                </Link>
+                              );
+                            }
+                            return null;
+                          })}
                         </div>
                       </div>
                     )}
