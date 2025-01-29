@@ -15,11 +15,11 @@ const Footer = () => {
         />
       </div>
 
-      <div className="flex flex-col items-center">
-        <h1 className="heading lg:max-w-[45vw]">
-          Empower <span className="text-blue"> your brand</span> journey — start now!
+      <div className="flex flex-col items-center ">
+        <h1 className="heading lg:max-w-[45vw] ">
+          <span className="leading-[1.4]">Where strategy meets creativity — <span className="text-blue"> your brand</span>’s success starts here! </span>
         </h1>
-        <p className="text-white-200 md:mt-10 my-5 text-center">
+        <p className="text-white-200 md:mt-10 mt-5 text-center">
           Reach out, and let’s plan the path to your success together.
         </p>
         <a href="mailto:jairajgsklm@gmai.com">
@@ -39,9 +39,9 @@ const Footer = () => {
           {socialMedia.map((info) => (
             <a
               key={info.id}
-              href={info.link} // Add href prop
-              target="_blank" // To open in new tab
-              rel="noopener noreferrer" // Security best practice for target="_blank"
+              href={info.link}
+              target="_blank"
+              rel="noopener noreferrer"
             >
               <div
                 className="w-10 h-10 cursor-pointer flex justify-center items-center backdrop-filter backdrop-blur-lg saturate-180 bg-opacity-75 bg-black-200 rounded-lg border border-black-300"

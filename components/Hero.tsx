@@ -10,7 +10,7 @@ const Hero = () => {
   const [isFullscreen, setIsFullscreen] = useState(false);
   const iframeRef = useRef<HTMLIFrameElement | null>(null);
   const containerRef = useRef<HTMLDivElement | null>(null);
-  const iframeControlsRef = useRef<HTMLDivElement | null>(null)
+  const iframeControlsRef = useRef<HTMLDivElement | null>(null);
   const [fullscreenElement, setFullscreenElement] = useState<Element | null>(null);
   const [showBlurMessage, setShowBlurMessage] = useState(false);
   const [iframeControlsPosition, setIframeControlsPosition] = useState<'absolute' | 'fixed'>('absolute');
@@ -23,8 +23,8 @@ const Hero = () => {
       setFullscreenElement(document.fullscreenElement || (document as any).mozFullScreenElement || (document as any).webkitFullscreenElement || (document as any).msFullscreenElement);
       setIsFullscreen(isCurrentlyFullscreen);
 
-      setShowBlurMessage(!isCurrentlyFullscreen)
-      setShowIframeControls(!isCurrentlyFullscreen)
+      setShowBlurMessage(!isCurrentlyFullscreen);
+      setShowIframeControls(!isCurrentlyFullscreen);
 
       // Focus the iframe when entering fullscreen
       if (isCurrentlyFullscreen && iframeRef.current) {
@@ -79,13 +79,29 @@ const Hero = () => {
     };
   }, [isFullscreen]);
 
+  useEffect(() => {
+    const handleMessage = (event: MessageEvent) => {
+      if (event.origin !== "https://surfmyresume.vercel.app") return;
+
+      if (event.data.type === 'interaction' && !isFullscreen) {
+        setShowBlurMessage(true);
+      }
+    };
+
+    window.addEventListener('message', handleMessage);
+
+    return () => {
+      window.removeEventListener('message', handleMessage);
+    };
+  }, [isFullscreen]);
+
   const handleFullscreen = () => {
     const container = containerRef.current;
 
     if (!container) return;
 
     if (!isFullscreen) {
-      setShowBlurMessage(false)
+      setShowBlurMessage(false);
       if (container.requestFullscreen) {
         container.requestFullscreen();
       } else if ((container as any).mozRequestFullScreen) {
@@ -190,8 +206,8 @@ const Hero = () => {
               <div
                 className={`absolute inset-0 bg-black/[0.7] z-10 flex items-center justify-center transition-opacity duration-300 ${showBlurMessage ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}`}>
                 {showBlurMessage && (
-                  <p className="text-white text-xl font-semibold text-center px-4 w-[55%]">
-                    Kindly switch to fullscreen mode to continue surfing.
+                  <p className="text-white text-xl font-semibold text-center px-4 w-[45%]">
+                    Kindly switch to fullscreen mode to start surfing.
                   </p>
                 )}
               </div>
