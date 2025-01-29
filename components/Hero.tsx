@@ -16,6 +16,46 @@ const Hero = () => {
   const [iframeControlsPosition, setIframeControlsPosition] = useState<'absolute' | 'fixed'>('absolute');
   const [showIframeControls, setShowIframeControls] = useState(true);
 
+  const spotlightRef = useRef<HTMLDivElement>(null); // Spotlight ref
+
+  useEffect(() => {
+    let targetX = 0;
+    let targetY = 0;
+    let currentX = 0;
+    let currentY = 0;
+    let animationFrameId: number;
+
+    const handleMouseMove = (e: MouseEvent) => {
+      targetX = e.clientX;
+      targetY = e.clientY;
+    };
+
+    window.addEventListener('mousemove', handleMouseMove);
+
+    const animate = () => {
+      currentX += (targetX - currentX) * 0.1;
+      currentY += (targetY - currentY) * 0.1;
+
+      if (spotlightRef.current) {
+        spotlightRef.current.style.left = `${currentX}px`;
+        spotlightRef.current.style.top = `${currentY}px`;
+      }
+
+      document.documentElement.style.setProperty('--x', `${currentX}px`);
+      document.documentElement.style.setProperty('--y', `${currentY}px`);
+
+      animationFrameId = requestAnimationFrame(animate);
+    };
+
+    animate();
+
+    return () => {
+      window.removeEventListener('mousemove', handleMouseMove);
+      cancelAnimationFrame(animationFrameId);
+    };
+  }, []);
+
+
   useEffect(() => {
     const handleFullscreenChange = () => {
       const isCurrentlyFullscreen = !!(document.fullscreenElement || (document as any).mozFullScreenElement || (document as any).webkitFullscreenElement || (document as any).msFullscreenElement);
@@ -139,28 +179,29 @@ const Hero = () => {
   }, [isFullscreen]);
 
   return (
-    <div className="pt-36">
-      <div>
-        <Spotlight
-          className="-top-40 -left-10 md:-left-32 md:-top-20 h-screen"
-          fill="white"
-        />
+    <div className="pt-36 relative">
+      <div className="h-screen w-full dark:bg-black-100 bg-white dark:bg-grid-white/[0.03] bg-grid-black-100/[0.2] absolute top-0 left-0 flex items-center justify-center">
+        <div className="fixed inset-0 pointer-events-none" style={{
+          background: 'radial-gradient(circle at var(--x, 50%) var(--y, 50%), transparent 10%, rgba(0, 0, 0, 0.9) 70%)'
+        }} />
+      </div>
+
+      <Spotlight
+        ref={spotlightRef}
+        className="opacity-40"
+        fill="white"
+      />
+      <div
+      >
         <Spotlight
           className="h-[80vh] w-[50vw] top-10 left-full"
           fill="blue"
         />
-        <Spotlight className="left-80 top-28 h-[80vh] w-[50vw]" fill="blue" />
+        {/* <Spotlight className="left-65 top-[-50px] h-[45vh] w-[25vw]" fill="white" /> */}
+
+        <Spotlight className="left-20 top-58 h-[90vh] w-[50vw]" fill="blue" />
       </div>
 
-      <div
-        className="h-screen w-full dark:bg-black-100 bg-white dark:bg-grid-white/[0.03] bg-grid-black-100/[0.2]
-       absolute top-0 left-0 flex items-center justify-center"
-      >
-        <div
-          className="absolute pointer-events-none inset-0 flex items-center justify-center dark:bg-black-100
-         bg-white [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]"
-        />
-      </div>
 
       <div className="flex justify-center relative my-19 z-10">
         <div className="max-w-[80vw] md:max-w-2xl lg:max-w-[45vw] flex flex-col items-center justify-center">
