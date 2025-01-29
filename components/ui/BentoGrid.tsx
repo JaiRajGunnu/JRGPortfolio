@@ -1,3 +1,4 @@
+"use client";
 import { useState } from "react";
 import { IoCopyOutline } from "react-icons/io5";
 
@@ -49,7 +50,7 @@ export const BentoGridItem = ({
   titleClassName?: string;
   spareImg?: string;
 }) => {
-  const leftLists = ["UI/UX", "NextJS", "ReactJS" ];
+  const leftLists = ["UI/UX", "NextJS", "ReactJS"];
   const rightLists = ["Java", "DevOps ", "AWS"];
 
   const [copied, setCopied] = useState(false);

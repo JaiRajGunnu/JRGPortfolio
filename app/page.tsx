@@ -1,14 +1,16 @@
 "use client";
 
+import dynamic from "next/dynamic";
 import { navItems } from "@/data";
-import Hero from "@/components/Hero";
-import Grid from "@/components/Grid";
-import Footer from "@/components/Footer";
-import Clients from "@/components/Clients";
-import Certifications from "@/components/Certifications";
-import Roles from "@/components/Roles";
-import RecentProjects from "@/components/RecentProjects";
 import { FloatingNav } from "@/components/ui/FloatingNavbar";
+import Footer from "@/components/Footer";
+import Roles from "@/components/Roles";
+import Certifications from "@/components/Certifications";
+
+// Dynamically importing components to prevent SSR issues
+const Hero = dynamic(() => import("@/components/Hero"), { ssr: false });
+const Grid = dynamic(() => import("@/components/Grid"), { ssr: false });
+const RecentProjects = dynamic(() => import("@/components/RecentProjects"), { ssr: false });
 
 const Home = () => {
   return (
@@ -18,7 +20,6 @@ const Home = () => {
         <Hero />
         <Grid />
         <RecentProjects />
-        {/* <Clients /> */}
         <Roles />
         <Certifications />
         <Footer />
