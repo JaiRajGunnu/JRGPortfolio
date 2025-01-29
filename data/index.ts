@@ -68,6 +68,8 @@ export const gridItems = [
     spareImg: "",
   },
 ];
+
+
 export const projects = [
   {
     id: 1,
@@ -76,11 +78,7 @@ export const projects = [
     img: "/pimg1.jpg",
     iconLists: ["/re.svg", "/tail.svg", "/ts.svg", "/next.svg", "/figma.webp"],
     links: {
-      // GitHub: "",
-      // live: "https://comingsoon-eta-one.vercel.app/",
-      // figma: "",
-      // files: "",
-      underConstruction: true
+      underConstruction: true,
     },
     status: "Ongoing",
   },
@@ -92,9 +90,7 @@ export const projects = [
     iconLists: ["/re.svg", "/tail.svg", "/nodejs.webp", "/git.webp", "/js.png"],
     links: {
       live: "https://surfmyresume.vercel.app/",
-      GitHub: "https://github.com/your-repo-2",
-      // figma: "",
-      // files: "",
+      GitHub: "https://github.com/JaiRajGunnu/SurfMyResume",
       underConstruction: false,
     },
     status: "Completed",
@@ -107,9 +103,6 @@ export const projects = [
     iconLists: ["/docker.webp", "/git.webp", "/mongodb.svg", "/postman.webp", "/js.png"],
     links: {
       GitHub: "https://github.com/JaiRajGunnu/docker_cicd",
-      // live: "https://comingsoon-eta-one.vercel.app/",
-      // figma: "",
-      // files: "",
       underConstruction: false,
     },
     status: "Completed",
@@ -121,11 +114,9 @@ export const projects = [
     img: "/pimg4.png",
     iconLists: ["/next.svg", "/tail.svg", "/ts.svg", "/figma.webp", "/re.svg"],
     links: {
-      // GitHub: "",
-      // live: "https://comingsoon-eta-one.vercel.app/",
-      // figma: "",
-      files: "",
+      video: "https://drive.google.com/file/d/1x1LiggpKvwEmAE66znEziRogG9Wk8pKw/preview",
       underConstruction: false,
+
     },
     status: "Paused",
   },
@@ -140,14 +131,14 @@ export const projects = [
   // GitHub: "",
   // live: "https://comingsoon-eta-one.vercel.app/",
   // figma: "",
-  // files: "",     
+  // files: "",
+  // video: "",
+  // underConstruction: false,
+
   //   status: "Completed",
   // },
 
 ];
-
-
-
 
 
 export const testimonials = [
